@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/item_mainlv_top_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month_out" />
+
+        <TextView
+            android:id="@+id/item_mainlv_top_tv_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_mainlv_top_tv1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:text="$ 0" />
+
+        <ImageView
+            android:id="@+id/item_mainlv_top_iv_hide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/item_mainlv_top_tv_out"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@mipmap/ih_show" />
+
+        <TextView
+            android:id="@+id/item_mainlv_top_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_mainlv_top_tv_out"
+            android:text="TextView"
+            tools:text="@string/month_in" />
+
+        <TextView
+            android:id="@+id/item_mainlv_top_tv_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_mainlv_top_tv2"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/item_mainlv_top_tv2"
+            android:text="TextView"
+            android:textColor="#000000"
+            tools:text="$ 0" />
+
+        <TextView
+            android:id="@+id/item_mainlv_top_tv_budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_mainlv_top_tv2"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:text="$ 0"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/item_mainlv_top_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_mainlv_top_tv_budget"
+            android:layout_alignParentRight="false"
+            android:layout_toLeftOf="@id/item_mainlv_top_tv_budget"
+            android:text="@string/budget" />
+
+        <TextView
+            android:id="@+id/item_mainlv_top_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_mainlv_top_tv2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@mipmap/ih_biaoge"
+            android:drawablePadding="10dp"
+            android:text="@string/excel"
+            android:textColor="#006400" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_mainlv_top_tv_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="本日支出  $ 0   本日收入 $ 0" />
+</LinearLayout>
