@@ -2,6 +2,7 @@ package com.hina122526.tally.db;
 
 //負責管理資料庫的類別，可以操作表的內容(新增、刪除、修改、查詢)
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -40,6 +41,22 @@ public class DBManager {
             list.add(typeBean);
         }
         return list;
+    }
+
+    //在記帳表當中插入一條元素
+    public static void insertItemToAccounttb(AccountBean bean){
+        ContentValues values = new ContentValues();
+        values.put("typename",bean.getTypename());
+        values.put("sImageId",bean.getsImageId());
+        values.put("beizhu",bean.getBeizhu());
+        values.put("money",bean.getMoney());
+        values.put("time",bean.getTime());
+        values.put("year",bean.getYear());
+        values.put("month",bean.getMonth());
+        values.put("day",bean.getDay());
+        values.put("kind",bean.getKind());
+
+        db.insert("accounttb",null,values); //要插入到哪張表中
     }
 }
 
