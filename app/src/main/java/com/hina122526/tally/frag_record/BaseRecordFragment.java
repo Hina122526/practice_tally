@@ -20,7 +20,9 @@ import com.hina122526.tally.R;
 import com.hina122526.tally.db.AccountBean;
 import com.hina122526.tally.db.DBManager;
 import com.hina122526.tally.db.TypeBean;
+import com.hina122526.tally.utils.BeiZhuDialog;
 import com.hina122526.tally.utils.KeyBoardUtils;
+import com.hina122526.tally.utils.SelectTimeDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ import java.util.List;
 
 //ADD頁面支出區塊
 
-public abstract class BaseRecordFragment extends Fragment {
+public abstract class BaseRecordFragment extends Fragment implements View.OnClickListener{
 
     KeyboardView keyboardView;
     EditText moneyEt;
@@ -73,8 +75,8 @@ public abstract class BaseRecordFragment extends Fragment {
 
         Calendar calendar = Calendar.getInstance(); //得到當前日曆內容對象
         int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH)+1;
         accountBean.setYear(year);
         accountBean.setMonth(month);
         accountBean.setDay(day);
@@ -118,11 +120,14 @@ public abstract class BaseRecordFragment extends Fragment {
         timeTv = view.findViewById(R.id.frag_record_tv_time);
         typeGv = view.findViewById(R.id.frag_record_gv);
 
+        beizhuTv.setOnClickListener(this);
+        timeTv.setOnClickListener(this);
+
         //顯示自定義鍵盤
         KeyBoardUtils boardUtils = new KeyBoardUtils(keyboardView,moneyEt);
         boardUtils.showKeyboard();
 
-        //監聽點擊按鈕
+        //設定街口，監聽按鈕被點擊
         boardUtils.setOnEnsureListener(new KeyBoardUtils.OnEnsureListener() {
             @Override
             public void onEnsure() {
@@ -145,4 +150,51 @@ public abstract class BaseRecordFragment extends Fragment {
     //讓子類一定要重寫此抽象方法
     public abstract void saveAccountToDB();
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.frag_record_tv_time:
+                showtTimeDialog();
+                break;
+            case R.id.frag_record_tv_beizhu:
+                showBZDialog();
+                break;
+        }
+    }
+
+    //彈出時間的對話框
+    private void showtTimeDialog() {
+        SelectTimeDialog dialog = new SelectTimeDialog(getContext());
+        dialog.show();
+
+        //設定確定按鈕被點擊的Listener
+        dialog.setOnEnsureListener(new SelectTimeDialog.OnEnsureListener() {
+            @Override
+            public void onEnsure(String time, int year, int month, int day) {
+                timeTv.setText(time);
+                accountBean.setTime(time);
+                accountBean.setYear(year);
+                accountBean.setMonth(month);
+                accountBean.setDay(day);
+            }
+        });
+    };
+
+    //彈出備註對話框
+    public void showBZDialog(){
+        final BeiZhuDialog dialog =new BeiZhuDialog(getContext());
+        dialog.show();
+        dialog.setDialogSize();
+        dialog.setOnEnsureListener(new BeiZhuDialog.OnEnsureListener() {
+            @Override
+            public void onEnsure() {
+                String msg = dialog.getEditText();
+                if(!TextUtils.isEmpty(msg)){
+                    beizhuTv.setText(msg);
+                    accountBean.setBeizhu(msg);
+                }
+                dialog.cancel();
+            }
+        });
+    }
 }

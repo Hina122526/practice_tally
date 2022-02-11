@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/drawable/dialog_btn_bg.xml" value="0.275" />
+        <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/drawable/ic_launcher_background.xml" value="0.275" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/drawable/main_morebtn_bg.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/drawable/main_recordbtn_bg.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_outcome_fragment.xml" value="0.1" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_record.xml" value="0.25" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_record2.xml" value="0.20018115942028986" />
+        <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/dialo_beizhu.xml" value="0.4" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_beizhu.xml" value="0.1671195652173913" />
+        <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_calender.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_time.xml" value="0.4" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_blank.xml" value="0.11851851851851852" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_outcome.xml" value="0.264" />
         <entry key="..\:/Users/151/AndroidStudioProjects/Tally/app/src/main/res/layout/item_mainlv.xml" value="0.264" />

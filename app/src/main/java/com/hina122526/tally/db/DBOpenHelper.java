@@ -12,7 +12,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 
     public DBOpenHelper(@Nullable Context context) {
-        super(context, "tally.db", null , 1);
+        super(context, "tally.db", null , 2);
     }
 
 

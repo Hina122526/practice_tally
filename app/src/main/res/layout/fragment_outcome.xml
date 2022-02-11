@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:padding="10dp"
-            android:text="2021/12/21 23:17"
+            android:text="yyyy/mm/dd hh:MM"
             android:textColor="@color/black" />
 
         <TextView

@@ -4,6 +4,11 @@
     <string name="month_in">本月收入</string>
     <string name="budget">預算剩餘</string>
     <string name="excel">查看圖表分析</string>
+    <string name="add_remark">新增備註</string>
+    <string name="remark">備註</string>
+    <string name="ensure">確定</string>
+    <string name="cancel">取消</string>
+    <string name="please_input_time">請輸入時間(24小時制)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
