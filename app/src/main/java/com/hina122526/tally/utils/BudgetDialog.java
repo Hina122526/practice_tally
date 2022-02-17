@@ -3,7 +3,7 @@ package com.hina122526.tally.utils;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.TextUtils;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -11,63 +11,71 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.hina122526.tally.R;
 
-public class BeiZhuDialog extends Dialog implements View.OnClickListener {
-    EditText et;
-    Button cancelBtn,ensureBtn;
+public class BudgetDialog extends Dialog implements View.OnClickListener {
+    ImageView cancelIV;
+    Button ensureBtn;
+    EditText moneyEt;
+
+    public interface OnEnsureListener {
+        public void onEnsure(float money);
+    }
+
     OnEnsureListener onEnsureListener;
 
-    //設定回調接口的方法(?)
     public void setOnEnsureListener(OnEnsureListener onEnsureListener) {
         this.onEnsureListener = onEnsureListener;
     }
 
-    public BeiZhuDialog(@NonNull Context context) {
+    public BudgetDialog(@NonNull Context context) {
         super(context);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialo_beizhu); //設定彈出的對話框要顯示的layout
-
-        et = findViewById(R.id.dialog_beizhu_et);
-        cancelBtn = findViewById(R.id.dialog_beizhu_btn_cancel);
-        ensureBtn = findViewById(R.id.dialog_beizhu_btn_ensure);
-
-        cancelBtn.setOnClickListener(this);
+        setContentView(R.layout.dialog_buget);
+        cancelIV = findViewById(R.id.dialog_buget_iv_error);
+        ensureBtn = findViewById(R.id.dialog_buget_btn_ensure);
+        moneyEt = findViewById(R.id.dialog_buget_et);
+        cancelIV.setOnClickListener(this);
         ensureBtn.setOnClickListener(this);
-
-    }
-
-    public interface OnEnsureListener{
-        public void onEnsure();
 
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.dialog_beizhu_btn_cancel:
+        switch (view.getId()) {
+            case R.id.dialog_buget_iv_error:
                 cancel();
                 break;
-            case R.id.dialog_beizhu_btn_ensure:
-                if (onEnsureListener!=null){
-                    onEnsureListener.onEnsure();
+            case R.id.dialog_buget_btn_ensure:
+                //取得輸入後按下確定的數值
+                String data = moneyEt.getText().toString();
+                if (TextUtils.isEmpty(data)) {
+                    Toast.makeText(getContext(), "請輸入金額", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+                float money = Float.parseFloat(data);
+                if (money < 0) {
+                    Toast.makeText(getContext(), "金額必須大於0", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (onEnsureListener!=null) {
+                    onEnsureListener.onEnsure(money);
+                }
+
+                cancel();
                 break;
         }
     }
-
-    //取得輸入資料的方法
-    public String getEditText(){
-        return et.getText().toString().trim();
-    }
-
     //將dialog的尺寸與螢幕尺寸一致
     public void setDialogSize(){
         //取得目前視窗的對象(?)

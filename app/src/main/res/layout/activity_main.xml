@@ -23,16 +23,6 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/main_lv_search"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:background="#F3F3F3"
-            android:onClick="onClick"
-            android:padding="10dp"
-            app:srcCompat="@android:drawable/ic_menu_search" />
-
     </RelativeLayout>
 
     <ListView
@@ -44,36 +34,18 @@
         android:background="#F3F3F3"
         android:dividerHeight="6dp" />
 
-    <ImageButton
-        android:id="@+id/main_btn_more"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/main_morebtn_bg"
-        android:onClick="onClick"
-        app:srcCompat="@mipmap/more"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <Button
         android:id="@+id/main_btn_edit"
         android:layout_width="75dp"
         android:layout_height="50dp"
-        android:layout_alignBottom="@id/main_btn_more"
         android:layout_alignParentEnd="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="2dp"
-        android:layout_toLeftOf="@id/main_btn_more"
         android:background="@drawable/main_recordbtn_bg"
         android:drawableLeft="@mipmap/edit"
         android:foregroundGravity="center_vertical"
-        android:onClick="onClick"
         android:text="ADD"
         android:textColor="@color/white"
         android:textStyle="bold" />

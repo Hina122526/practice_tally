@@ -26,11 +26,10 @@
             android:layout_below="@id/item_mainlv_top_tv1"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="TextView"
+            android:text="$ 0"
             android:textColor="#000000"
             android:textSize="26sp"
-            android:textStyle="bold"
-            tools:text="$ 0" />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/item_mainlv_top_iv_hide"
@@ -45,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/item_mainlv_top_tv_out"
-            android:text="TextView"
+            android:text="本月收入"
             tools:text="@string/month_in" />
 
         <TextView
@@ -55,9 +54,8 @@
             android:layout_alignBottom="@id/item_mainlv_top_tv2"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/item_mainlv_top_tv2"
-            android:text="TextView"
-            android:textColor="#000000"
-            tools:text="$ 0" />
+            android:text="$ 0"
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/item_mainlv_top_tv_budget"
@@ -77,18 +75,6 @@
             android:layout_alignParentRight="false"
             android:layout_toLeftOf="@id/item_mainlv_top_tv_budget"
             android:text="@string/budget" />
-
-        <TextView
-            android:id="@+id/item_mainlv_top_tv4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/item_mainlv_top_tv2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:drawableLeft="@mipmap/ih_biaoge"
-            android:drawablePadding="10dp"
-            android:text="@string/excel"
-            android:textColor="#006400" />
 
     </RelativeLayout>
 

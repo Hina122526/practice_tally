@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hina122526.tally.MainActivity;
 import com.hina122526.tally.R;
 import com.hina122526.tally.db.AccountBean;
 
@@ -25,9 +26,10 @@ public class AccountAdapter extends BaseAdapter {
         this.context = context;
         this.mDatas = mDatas;
         inflater = LayoutInflater.from(context);
+
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH + 1);
+        month = calendar.get(Calendar.MONTH)+1;
         day = calendar.get(Calendar.DAY_OF_MONTH);
     }
 

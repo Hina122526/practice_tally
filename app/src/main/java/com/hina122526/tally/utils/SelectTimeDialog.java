@@ -6,21 +6,27 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.hina122526.tally.MainActivity;
 import com.hina122526.tally.R;
 
 import java.nio.Buffer;
+import java.util.Calendar;
 
 //在記錄頁面彈出對話框
 public class SelectTimeDialog extends Dialog implements View.OnClickListener {
-    EditText hourEt,minuateEt;
+    Spinner hourEt, minuateEt;
     DatePicker datePicker;
     Button ensureBtn,cancelbtn;
+
 
     public interface OnEnsureListener {
         public void onEnsure(String time, int year, int month, int day);
@@ -42,6 +48,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
 
         hourEt = findViewById(R.id.dialog_time_et_hour);
         minuateEt = findViewById(R.id.dialog_time_et_minute);
+
         datePicker = findViewById(R.id.dialog_time_dp);
         ensureBtn = findViewById(R.id.dialog_time_btn_ensure);
         cancelbtn = findViewById(R.id.dialog_time_btn_cancel);
@@ -49,7 +56,27 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
         ensureBtn.setOnClickListener(this);
         cancelbtn.setOnClickListener(this);
 
+        hourEtAdapter();
+        minuateEtAdapter();
         hideDatePickerHeader();
+    }
+
+    private void hourEtAdapter(){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.time_hour, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        hourEt.setAdapter(adapter);
+    }
+
+    private void minuateEtAdapter(){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.time_minuate, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        minuateEt.setAdapter(adapter);
     }
 
     @Override
@@ -74,8 +101,8 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
                 }
 
                 //取得按下確定後所選的時間(Hr、Min)資料
-                String hourStr = hourEt.getText().toString();
-                String minuateStr = minuateEt.getText().toString();
+                String hourStr = hourEt.getSelectedItem().toString();
+                String minuateStr = minuateEt.getSelectedItem().toString();
                 int hour = 0;
                 if (!TextUtils.isEmpty((hourStr))) {
                     hour = Integer.parseInt(hourStr);
